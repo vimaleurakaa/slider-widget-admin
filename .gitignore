@@ -2,8 +2,11 @@
 
 # dependencies
 /node_modules
+/server/node_modules
+/server/images/*
 /.pnp
 .pnp.js
+medi-carousel-admin.zip
 
 # testing
 /coverage

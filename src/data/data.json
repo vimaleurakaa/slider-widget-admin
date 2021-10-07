@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "i": "/assets/submit-health-insurance-claim-online.png",
+    "c": "<h2>Submit all your <strong>claims ONLINE</strong> on <strong>Medi Assist</strong> Portal!</h2>"
+  },
+  {
+    "id": 2,
+    "i": "/assets/best-tpa-2020-insurancealertss.png",
+    "c": "<h2><strong>Medi Assist</strong> was awarded <br><strong>India's Best TPA at the Asia Insurance Awards 2020</strong> conducted by Insurance Alerts in December 2020</h2>"
+  },
+  {
+    "id": 3,
+    "i": "/assets/blogs-launch.svg",
+    "c": "<h2> Done searching <strong>healthcare related information</strong> everywhere on the Internet? </h2>"
+  },
+  {
+    "id": 4,
+    "i": "/assets/data-security.svg",
+    "c": "<h2>Did you know that we have <strong>amped up security for your data?</strong></h2>"
+  },
+  {
+    "id": 5,
+    "i": "/assets/covid.svg",
+    "c": "<h2>Did you know that you can now explore <strong>COVID-19 Treatment Hospitals</strong> on your Medi Assist Portal? </h2>"
+  }
+]

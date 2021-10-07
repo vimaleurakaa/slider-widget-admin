@@ -1,0 +1,22 @@
+@import "./variables";
+
+@mixin primaryButton($color, $bg-color) {
+  cursor: pointer;
+  padding: 0.6rem;
+  color: $color;
+  margin: 0.3rem 1.4rem;
+  border-radius: 0.3rem;
+  background-color: $bg-color;
+  border: 1px solid transparent;
+  transition: $anim-25;
+  -webkit-transition: $anim-25;
+  -moz-transition: $anim-25;
+  -ms-transition: $anim-25;
+  -o-transition: $anim-25;
+
+  &:hover {
+    color: $bg-color;
+    background-color: $color;
+    border: 1px solid $bg-color;
+  }
+}
