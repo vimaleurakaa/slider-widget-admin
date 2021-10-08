@@ -21,9 +21,9 @@ const Home = () => {
 
   return (
     <>
-      {Object.entries(items).map(([key, { i, c }]) => (
-        <div className="ma-comm-promo-carousel--inner" key={key}>
-          <Link to={"/slider/edit/" + key}>
+      {Object.entries(items).map(([key, { i, c, id }]) => (
+        <div className="ma-comm-promo-carousel--inner" key={id}>
+          <Link to={"/slider/edit/" + id}>
             <div
               className="ma-comm-promo-carousel--edit"
               onClick={() => editClickHandler(key)}

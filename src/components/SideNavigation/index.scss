@@ -43,6 +43,10 @@
   font-weight: 600;
 }
 
+.side-drawer .min-h-screen {
+  min-width: 200px;
+}
+
 .slider-btn--disabled {
   pointer-events: none;
   .crete-slider {

@@ -41,8 +41,11 @@
   position: relative;
   margin: 2rem 0.5rem;
   background-color: #fff;
-  padding: 1rem;
+  padding: 3rem 1rem;
   border-radius: 0.3rem;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
 
   &::after {
     content: "";
@@ -96,9 +99,10 @@ h2 {
   margin-bottom: 16px;
 }
 
-.ma-comm-promo-carousel--content, .ql-editor {
-  p{
-    margin-bottom : 16px;
+.ma-comm-promo-carousel--content,
+.ql-editor {
+  p {
+    margin-bottom: 16px;
   }
   ul {
     list-style: disc;

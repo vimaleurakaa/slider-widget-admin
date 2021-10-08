@@ -17,10 +17,6 @@ export const appRootReducer = (state = initialState, { type, payload }) => {
         filterData: payload,
       };
 
-    case __.UPDATE_DATA:
-      console.log("Data updated to DB");
-      return state;
-
     case __.PUBLISH_IN_CHECK:
       return {
         ...state,
@@ -29,11 +25,13 @@ export const appRootReducer = (state = initialState, { type, payload }) => {
           [payload.target.name]: payload.target.checked,
         },
       };
+
     case __.PUSH_DATA_TO_DB:
       return {
         ...state,
         published: payload,
       };
+
     case __.FILTER_DATA:
       let filter = [];
       Object.entries(state?.items).filter(([key, value]) => {
@@ -56,6 +54,15 @@ export const appRootReducer = (state = initialState, { type, payload }) => {
         filterData: filter,
         editMode: false,
       };
+
+    case __.DATA_PUBLISHED: {
+      return {
+        ...state,
+        filterData: payload.items,
+        published: payload.status,
+      };
+    }
+
     case __.EDIT_MODE:
       const checkboxState = JSON.parse(localStorage.getItem("react-slider"));
 
@@ -64,6 +71,15 @@ export const appRootReducer = (state = initialState, { type, payload }) => {
         editMode: payload.editMode,
         checkBoxEvent: checkboxState?.d,
       };
+
+    case __.UPDATE_DATABASE:
+      return {
+        ...state,
+        filterData: payload.items,
+        published: payload.status,
+        editMode: false,
+      };
+
     default:
       return state;
   }

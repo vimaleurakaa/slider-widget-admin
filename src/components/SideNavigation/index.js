@@ -6,7 +6,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { filterData, editorMode } from "../../store/actions";
 
 const SideNavigation = (props) => {
-  //const state = useSelector((state) => state.filterData);
   const editMode = useSelector((state) => state.editMode);
 
   const dispatch = useDispatch();
@@ -28,7 +27,7 @@ const SideNavigation = (props) => {
     <main>
       <section className="flex">
         <aside className="side-drawer flex-1">
-          <div className="min-h-screen flex flex-col bg-white overflow-hidden">
+          <div className="min-h-screen flex flex-col bg-white overflow-hidden fixed">
             <div className="flex brand-logo items-center justify-center h-20 my-6">
               <img className="w-20" src="/assets/logo.png" alt="brand-logo" />
             </div>

@@ -15,12 +15,13 @@ const storage = multer.diskStorage({
   },
 });
 
-const WriteTextToFileAsync = async (contentToWrite) => {
+const WriteTextToFileAsync = async (contentToWrite, res) => {
   fs.writeFile("data/data.json", contentToWrite, (err) => {
     if (err) {
-      console.log(err);
+      return res.status(400).send({ data: contentToWrite, status: false });
     } else {
-      console.log("file updated!");
+      console.log(contentToWrite, res);
+      return res.status(200).send({ data: contentToWrite, status: true });
     }
   });
 };
@@ -30,6 +31,14 @@ const upload = multer({ storage: storage });
 //default router
 router.get("/", (req, res) => {
   res.status(200).send({ message: "Mediassist Server is Running..." });
+});
+
+//JSON API ENDPOINT
+router.get("/api/v1/data", (req, res) => {
+  fs.readFile("./data/data.json", (err, data) => {
+    let obj = JSON.parse(data);
+    res.json(obj);
+  });
 });
 
 // Upload Image
@@ -42,7 +51,7 @@ router.post("/upload", upload.single("upload"), (req, res, next) => {
 // CRUD JSON DATA
 router.post("/write", async (req, res, next) => {
   const requestContent = JSON.stringify(req.body);
-  await WriteTextToFileAsync(requestContent);
+  await WriteTextToFileAsync(requestContent, res);
 });
 
 //404 route

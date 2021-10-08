@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import EditorCard from "../../components/EditorCard";
 import { useSelector, useDispatch } from "react-redux";
-import { publishData } from "../../store/actions";
+import { publishData, updateData } from "../../store/actions";
 import { Redirect, useParams } from "react-router-dom";
 
 const CreateSlider = () => {
@@ -43,7 +43,8 @@ const CreateSlider = () => {
 
   const publishHandler = () => {
     if (params?.id) {
-      dispatch();
+      const props = { checkbox, value, image: image.file, id: params?.id };
+      dispatch(updateData(props));
     } else {
       dispatch(publishData(checkbox, value, image.file));
     }
