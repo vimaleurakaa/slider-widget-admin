@@ -1,0 +1,22 @@
+[
+  {
+    "i": "/assets/submit-health-insurance-claim-online.png",
+    "c": "<h2>Submit all your <strong>claims ONLINE</strong> on <strong>Medi Assist</strong> Portal!</h2> <p><strong>Why choose ONLINE?</strong></p><ul> <li>Ensures speedy claim settlements</li><li>Real time claim tracking</li><li>Increases accuracy on claim settlements</li><li>Reduced paperwork</li><li>Decrease overhead costs and staff time</li></ul> <p><a target='_blank' class='ma-comm-promo-carousel--btn' href='https://blog.mediassist.in/choosing-online-claim-submission-a-complete-guide/'>Read more</a></p>"
+  },
+  {
+    "i": "/assets/best-tpa-2020-insurancealertss.png",
+    "c": "<h2><strong>Medi Assist</strong> was awarded <br><strong>India's Best TPA at the Asia Insurance Awards 2020</strong> conducted by Insurance Alerts in December 2020</h2><p><a target='_blank' class='ma-comm-promo-carousel--btn' href='https://blog.mediassist.in/medi-assist-wins-indias-best-tpa/'>Read more</a></p>"
+  },
+  {
+    "i": "/assets/blogs-launch.svg",
+    "c": "<h2> Done searching <strong>healthcare related information</strong> everywhere on the Internet? </h2> <p>We have it all right here for you! Find all answers to your queries on our blog website as we have compiled <strong>100+ blogs</strong>, packed with information that helps you!</p><p><a target='_blank' class='ma-comm-promo-carousel--btn' href='https://blog.Mediassist.in'>Visit the blog here</a></p>"
+  },
+  {
+    "i": "/assets/data-security.svg",
+    "c": "<h2>Did you know that we have <strong>amped up security for your data?</strong></h2> <p><strong>Contact Verification</strong> safely authenticates a user and prevents unauthorised access.</p><p><a href='https://blog.mediassist.in/securing-your-medibuddy-account-with-contact-verification/' target='_blank' class='ma-comm-promo-carousel--btn'>Click to Learn More</a></p><p><strong>SI Protect</strong> allows verification of claims before submission and safeguards the sum insured.</p><p><a href='https://blog.mediassist.in/safeguard-your-sum-insured/' target='_blank' class='ma-comm-promo-carousel--btn'>Click to Learn More</a></p>"
+  },
+  {
+    "i": "/assets/covid.svg",
+    "c": "<h2>Did you know that you can now explore <strong>COVID-19 Treatment Hospitals</strong> on your Medi Assist Portal? </h2> <div class='row covid-btns'><div class='col-xs-6' style='margin-bottom:15px;'><p>For State-wise COVID <br/>Helpline Information</p><a href='https://blog.mediassist.in/covid-state-wise-helpline-numbers-websites/' target='_blank' class='ma-comm-promo-carousel--btn'>Click Here</a > </div><div class='col-xs-6'> <p>For Guidelines on <br/> COVID-19 Hospitalization</p><a href='https://blog.mediassist.in/covid-19-guidelines-and-self-help-information/' target='_blank' class='ma-comm-promo-carousel--btn' style='width: 125px;'>Click Here</a> </div></div><p><strong>COVID-19 Precautions:</strong></p><ul class='covid-precautions'> <li> <span><img src='https://portal.medibuddy.in/MImages/Loginpage/Default/images/covid/Mask.svg' style='height: auto; width: 24px;'/></span> Wear a mask </li><li><span><img src='https://portal.medibuddy.in/MImages/Loginpage/Default/images/covid/Hand.svg'/></span> Sanitize your hands regularly</li><li><span><img src='https://portal.medibuddy.in/MImages/Loginpage/Default/images/covid/Distance.svg'/></span> Maintain social distance</li><li><span><img src='https://portal.medibuddy.in/MImages/Loginpage/Default/images/covid/Home.svg'/></span> Stay at home</li><li><span><img src='https://portal.medibuddy.in/MImages/Loginpage/Default/images/covid/Doctor.svg'/></span> Consult a doctor if you are showing symptoms of COVID-19</li></ul>"
+  }
+]

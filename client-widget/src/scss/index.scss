@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
+@import url("./_carousel.scss");
+
+//external css
+
+.covid-btns {
+  display: flex;
+}
+
+.covid-btns .col-xs-6:nth-child(1) {
+  margin-right: 16px;
+}
+
+.covid-precautions {
+  color: #122a3b;
+  padding: 0;
+  list-style: none;
+  font-size: 14px;
+}
+
+.covid-precautions li {
+  padding: 4px 10px;
+  background: #fff;
+  box-shadow: 0 3px 6px #ddd;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.covid-precautions li span {
+  margin-right: 5px;
+  width: 30px;
+  display: inline-block;
+  //   float: left;
+}
+.covid-precautions li span img {
+  height: 22px;
+}
+
+.ma-comm-promo-carousel-loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 6px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 6px solid #2c41ff;
+  width: 40px;
+  height: 40px;
+  animation: maCommSpin 1s linear infinite;
+  -webkit-animation: maCommSpin 1s linear infinite;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+}
+
+/* Safari */
+@-webkit-keyframes maCommSpin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes maCommSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
