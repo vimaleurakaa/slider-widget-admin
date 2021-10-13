@@ -32,6 +32,19 @@
   }
 }
 
+.crete-slider {
+  display: flex;
+  justify-content: center;
+  font-size: 4rem;
+  color: #428bca;
+}
+
+.side-drawer-items .active {
+  color: $white;
+  background-color: $primary-text;
+  border: 1px solid $primary-text;
+}
+
 .navigation--active {
   color: $white;
   background-color: $primary-text;
@@ -47,11 +60,23 @@
   min-width: 200px;
 }
 
-.slider-btn--disabled {
+.crete-slider--disabled {
   pointer-events: none;
-  .crete-slider {
-    background-color: #e9e9e9;
-    color: #bbb;
-    border: none;
-  }
+  opacity: 0.5;
+}
+
+.create-slider-fab {
+  position: absolute;
+  bottom: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.empty-state-ui {
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  justify-content: center;
+  align-items: center;
+  min-width: 400px;
 }

@@ -1,4 +1,5 @@
 import * as __ from "../actions/action_types";
+import { toast } from "react-toastify";
 
 const initialState = {
   items: [],
@@ -56,6 +57,7 @@ export const appRootReducer = (state = initialState, { type, payload }) => {
       };
 
     case __.DATA_PUBLISHED: {
+      toast.success("🛰️ Data published successfully!");
       return {
         ...state,
         filterData: payload.items,
@@ -73,11 +75,19 @@ export const appRootReducer = (state = initialState, { type, payload }) => {
       };
 
     case __.UPDATE_DATABASE:
+      toast.success("🛰️ Data updated successfully!");
       return {
         ...state,
         filterData: payload.items,
         published: payload.status,
         editMode: false,
+      };
+
+    case __.DUPLICATE_DATA:
+      toast.success("Duplicate successful!");
+      return {
+        ...state,
+        filterData: payload.items,
       };
 
     default:

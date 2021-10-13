@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "c": "<h2>Submit all your&nbsp;<strong>claims ONLINE</strong>&nbsp;on&nbsp;<strong>Medi Assist</strong>&nbsp;Portal!</h2><p><strong>Why choose ONLINE?</strong></p><ul><li>Ensures speedy claim settlements</li><li>Real-time claim tracking</li><li>Increases accuracy on claim settlements</li><li>Reduced paperwork</li><li>Decrease overhead costs and staff time</li></ul><p><a href=\"#Read More\" rel=\"noopener noreferrer\" target=\"_blank\">Read More</a></p>",
+    "d": {
+      "agent": 1,
+      "insurer": 1,
+      "me": 1,
+      "partner": 0,
+      "plus": 1,
+      "portal": 0
+    },
+    "i": "http://localhost:5000/images\\submit-health-insurance-claim-online.png",
+    "id": "8bfb4581-3c08-44b9-8432-c26d023e6810",
+    "pd": "10/13/2021, 3:40:23 PM"
+  }
+]

@@ -43,6 +43,7 @@ const CreateSlider = () => {
 
   const publishHandler = () => {
     if (params?.id) {
+      localStorage.removeItem("post--not-modified");
       const props = { checkbox, value, image: image.file, id: params?.id };
       dispatch(updateData(props));
     } else {

@@ -40,6 +40,25 @@ export const getData = () => {
   };
 };
 
+export const duplicateData = (prevData, newData) => {
+  return async (dispatch) => {
+    const updateDatabase = async (payloadData) => {
+      const { data } = payloadData;
+      await dispatch({
+        type: __.DUPLICATE_DATA,
+        payload: {
+          items: JSON.parse(data),
+        },
+      });
+    };
+    const id = uuid();
+    newData.id = id;
+    localStorage.setItem("post--not-modified", id);
+    const data = [newData, ...prevData];
+    uploadDataAsync(data, updateDatabase);
+  };
+};
+
 export const publishInCheck = (data) => {
   return async (dispatch) => {
     await dispatch({
