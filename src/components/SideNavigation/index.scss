@@ -32,13 +32,6 @@
   }
 }
 
-.crete-slider {
-  display: flex;
-  justify-content: center;
-  font-size: 4rem;
-  color: #428bca;
-}
-
 .side-drawer-items .active {
   color: $white;
   background-color: $primary-text;
@@ -65,11 +58,22 @@
   opacity: 0.5;
 }
 
+.crete-slider {
+  font-weight: bold;
+  text-align: center;
+  padding: 1rem;
+  color: #fff;
+  background-color: #e00000;
+  transition: all 0.25s ease;
+}
+
 .create-slider-fab {
   position: absolute;
-  bottom: 120px;
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: 0;
+  width: 100%;
+  &:hover .crete-slider {
+    background-color: #b50404;
+  }
 }
 
 .empty-state-ui {

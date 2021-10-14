@@ -6,11 +6,15 @@ import CreateSlider from "./pages/NewSlider";
 import TestPage from "./pages/TestPage";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Warning from "./components/Warning";
+import { deviceSupportedMessage } from "./data/utils";
 
 const App = () => {
+  const { title, message } = deviceSupportedMessage;
   return (
     <>
       <Router>
+        <Warning title={title} message={message} />
         <ToastContainer
           position="top-right"
           autoClose={4000}

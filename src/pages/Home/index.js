@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actions from "../../store/actions/index";
@@ -12,11 +12,14 @@ import { MdContentCopy } from "react-icons/md";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import "./index.scss";
+import Modal from "../../components/Modal";
 
 const Home = () => {
   const items = useSelector((state) => state.filterData);
   const dispatch = useDispatch();
   const duplicateID = localStorage.getItem("post--not-modified");
+
+  const [modal, setModal] = useState(false);
 
   const { publishState, editorMode, duplicateData } = bindActionCreators(
     actions,
@@ -28,6 +31,16 @@ const Home = () => {
     editorMode(false);
   }, [publishState, editorMode]);
 
+  const closeModal = (e) => {
+    if (e === DELETE_DATA) {
+      const data = [...items];
+      const key = sessionStorage.getItem("deleteKey");
+      const deleteItem = data.filter((it) => it.id !== key);
+      console.log(deleteItem);
+    }
+    setModal(!modal);
+  };
+
   const editClickHandler = (id, type = null) => {
     if (type === UPDATE_DATABASE) {
       items[id].key = id;
@@ -37,12 +50,15 @@ const Home = () => {
       const data = { ...items[id] };
       duplicateData(items, data);
     } else if (type === DELETE_DATA) {
-      console.log(DELETE_DATA, items[id], items);
+      setModal(!modal);
+      sessionStorage.setItem("deleteKey", items[id]?.id);
+      console.log(items);
     }
   };
 
   return (
     <>
+      <Modal show={modal} close={closeModal} />
       {Object.entries(items)?.length === 0 ? (
         <div className="empty-state-ui">
           <div>

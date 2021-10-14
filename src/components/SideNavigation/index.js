@@ -4,7 +4,6 @@ import { entities } from "../../data/utils";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { filterData, editorMode } from "../../store/actions";
-import { AiFillPlusCircle } from "react-icons/ai";
 
 const SideNavigation = (props) => {
   const editMode = useSelector((state) => state.editMode);
@@ -19,6 +18,7 @@ const SideNavigation = (props) => {
       id: "b644c3b71c6all",
       title: "All",
       name: "all",
+      priority: 0,
     },
     {
       id: "b644c3b71c6draft",
@@ -54,7 +54,12 @@ const SideNavigation = (props) => {
             </div>
             <ul className="side-drawer-items flex flex-col my-6">
               {entitiesItem
-                ?.sort((x, y) => x - y)
+                //eslint-disable-next-line
+                ?.sort((x, y) => {
+                  if (x?.priority !== 0 && y?.priority !== 0) {
+                    return x.name.localeCompare(y.name);
+                  }
+                })
                 ?.map((it) => (
                   <Link
                     onClick={() => filterDataHandler(it.name)}
@@ -80,7 +85,7 @@ const SideNavigation = (props) => {
               onClick={createNewSlider}
             >
               <div className="crete-slider">
-                <AiFillPlusCircle />
+                Create New{/* <AiFillPlusCircle /> */}
               </div>
             </Link>
           </div>

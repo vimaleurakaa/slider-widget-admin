@@ -30,3 +30,9 @@ export const entities = [
     name: "partner",
   },
 ];
+
+export const deviceSupportedMessage = {
+  title: "Error, Could not load the Admin Console.",
+  message:
+    "Your Screen size is too small. requires at-least 14inch display to view console.",
+};

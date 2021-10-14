@@ -13,6 +13,35 @@ body {
   background-color: #f3f4f6;
 }
 
+.ma--warning {
+  width: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  margin-top: 4rem;
+}
+
+#root {
+  display: block;
+}
+
+#confirmation-modal {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  #root {
+    display: none;
+  }
+  .ma--warning {
+    display: flex;
+  }
+  #confirmation-modal {
+    display: none;
+  }
+}
+
 .btn {
   @apply text-base font-medium rounded-lg p-3;
 }
