@@ -15,51 +15,51 @@ import "./index.scss";
 import Modal from "../../components/Modal";
 
 const Home = () => {
-  const items = useSelector((state) => state.filterData);
+  const items = useSelector((state) => state.items);
+  const filterItems = useSelector((state) => state.filterData);
   const dispatch = useDispatch();
   const duplicateID = localStorage.getItem("post--not-modified");
+  const params = window.location.pathname;
 
   const [modal, setModal] = useState(false);
 
-  const { publishState, editorMode, duplicateData } = bindActionCreators(
-    actions,
-    dispatch
-  );
+  const { publishState, editorMode, duplicateData, deleteData } =
+    bindActionCreators(actions, dispatch);
 
   useEffect(() => {
     publishState(false);
     editorMode(false);
-  }, [publishState, editorMode]);
+  }, [publishState, editorMode, params]);
 
   const closeModal = (e) => {
     if (e === DELETE_DATA) {
       const data = [...items];
       const key = sessionStorage.getItem("deleteKey");
-      const deleteItem = data.filter((it) => it.id !== key);
-      console.log(deleteItem);
+      const deleteItem = data.filter((it) => it?.id !== key);
+      deleteData(deleteItem);
+      sessionStorage.removeItem("deleteKey");
     }
     setModal(!modal);
   };
 
   const editClickHandler = (id, type = null) => {
     if (type === UPDATE_DATABASE) {
-      items[id].key = id;
-      localStorage.setItem("react-slider", JSON.stringify(items[id]));
+      filterItems[id].key = id;
+      localStorage.setItem("react-slider", JSON.stringify(filterItems[id]));
       editorMode(true);
     } else if (type === DUPLICATE_DATA) {
       const data = { ...items[id] };
       duplicateData(items, data);
     } else if (type === DELETE_DATA) {
       setModal(!modal);
-      sessionStorage.setItem("deleteKey", items[id]?.id);
-      console.log(items);
+      sessionStorage.setItem("deleteKey", filterItems[id]?.id);
     }
   };
 
   return (
     <>
       <Modal show={modal} close={closeModal} />
-      {Object.entries(items)?.length === 0 ? (
+      {Object.entries(filterItems)?.length === 0 ? (
         <div className="empty-state-ui">
           <div>
             <img height="300" src="/assets/empty-state.svg" alt="empty-state" />
@@ -69,16 +69,16 @@ const Home = () => {
           </div>
         </div>
       ) : (
-        Object.entries(items)?.map(([key, { i, c, id }]) => (
-          <div className="ma-comm-promo-carousel--inner" key={id}>
-            {duplicateID && duplicateID === id ? (
+        Object.entries(filterItems)?.map(([key, it]) => (
+          <div className="ma-comm-promo-carousel--inner" key={it?.id}>
+            {duplicateID && duplicateID === it?.id ? (
               <div className="ma-duplicate-post">NEW DUPLICATE</div>
             ) : (
               ""
             )}
             <div className="ma-comm-promo-carousel--edit">
               <div className="flex">
-                <Link to={"/slider/edit/" + id}>
+                <Link to={"/slider/edit/" + it?.id}>
                   <div
                     className="ma-comm-prom-icon-wrapper icon-wrapper--edit"
                     onClick={() => editClickHandler(key, UPDATE_DATABASE)}
@@ -105,12 +105,12 @@ const Home = () => {
               <div className="ma-comm-promo-carousel--box">
                 <img
                   className="ma-comm-promo-carousel--img"
-                  src={i}
+                  src={it?.i}
                   alt="communication-banner"
                 />
                 <div
                   className="ma-comm-promo-carousel--content"
-                  dangerouslySetInnerHTML={{ __html: c }}
+                  dangerouslySetInnerHTML={{ __html: it?.c }}
                 ></div>
               </div>
             </div>

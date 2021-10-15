@@ -9,10 +9,12 @@ const CreateSlider = () => {
   const published = useSelector((state) => state.published);
   const dispatch = useDispatch();
   const [value, setValue] = useState();
+
   const [image, setImage] = useState({
     file: "",
     filePreview: "/assets/300.gif",
   });
+
   const params = useParams();
   useEffect(() => {
     if (params?.id) {

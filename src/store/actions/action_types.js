@@ -7,3 +7,4 @@ export const DATA_PUBLISHED = Symbol("DATA_PUBLISHED");
 export const UPDATE_DATABASE = Symbol("UPDATE_DATABASE");
 export const DUPLICATE_DATA = Symbol("DUPLICATE_DATA");
 export const DELETE_DATA = Symbol("DELETE_DATA");
+export const MENU_STATE = Symbol("MENU_STATE");

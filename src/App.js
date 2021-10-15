@@ -17,7 +17,7 @@ const App = () => {
         <Warning title={title} message={message} />
         <ToastContainer
           position="top-right"
-          autoClose={4000}
+          autoClose={2000}
           hideProgressBar={false}
           newestOnTop={false}
           closeOnClick

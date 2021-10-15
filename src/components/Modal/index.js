@@ -14,8 +14,6 @@ const modalStyles = {
 };
 
 const Modal = ({ show, close }) => {
-  //modal-state
-
   return ReactDOM.createPortal(
     <>
       {show && (

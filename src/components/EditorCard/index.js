@@ -31,6 +31,12 @@ const SplitEditorCard = ({
     ],
   };
 
+  const filterInputHTML = (value) => {
+    const reg = /h[13456]>/gm;
+    const modHTML = value.replaceAll(reg, "h2>");
+    setValue(modHTML);
+  };
+
   const editMode = useSelector((state) => state.editMode);
 
   return (
@@ -53,7 +59,7 @@ const SplitEditorCard = ({
                 modules={modules}
                 theme="snow"
                 value={value}
-                onChange={setValue}
+                onChange={(ele) => filterInputHTML(ele)}
               />
             </div>
           </div>
@@ -61,11 +67,16 @@ const SplitEditorCard = ({
       </div>
 
       <CheckBox checkBoxHandler={checkBoxHandler} />
-
-      <div className="editor-layout-publish my-10 text-right">
-        <button className="btn btn--primary" onClick={publish}>
-          {editMode ? "Update and Publish" : "Save and publish"}
-        </button>
+      <div
+        {...((value === "" || value === undefined) && {
+          className: "crete-slider--disabled",
+        })}
+      >
+        <div className="editor-layout-publish my-10 text-right">
+          <button className="btn btn--primary" onClick={publish}>
+            {editMode ? "Update and Publish" : "Save and publish"}
+          </button>
+        </div>
       </div>
     </>
   );

@@ -181,10 +181,24 @@ export const updateData = ({ ...props }) => {
         type: __.UPDATE_DATABASE,
         payload: {
           status,
+          menu: "all",
           items: JSON.parse(data),
         },
       });
     };
+  };
+};
+
+export const deleteData = (data) => {
+  return async (dispatch) => {
+    const updateDatabase = async (payloadData) => {
+      const { data } = payloadData;
+      await dispatch({
+        type: __.DELETE_DATA,
+        payload: JSON.parse(data),
+      });
+    };
+    uploadDataAsync(data, updateDatabase);
   };
 };
 
@@ -213,6 +227,15 @@ export const editorMode = (state) => {
       payload: {
         editMode: state,
       },
+    });
+  };
+};
+
+export const menuState = (data) => {
+  return async (dispatch) => {
+    dispatch({
+      type: __.MENU_STATE,
+      payload: data,
     });
   };
 };

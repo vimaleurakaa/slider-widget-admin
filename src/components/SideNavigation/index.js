@@ -3,15 +3,20 @@ import "./index.scss";
 import { entities } from "../../data/utils";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { filterData, editorMode } from "../../store/actions";
+import { bindActionCreators } from "redux";
+import * as actions from "../../store/actions";
 
 const SideNavigation = (props) => {
   const editMode = useSelector((state) => state.editMode);
+  const menu = useSelector((state) => state.menu);
   const dispatch = useDispatch();
-
-  const params = window.location.pathname.split("/").indexOf("edit");
-
+  const params = window.location.pathname;
   const [activeMenu, setActiveMenu] = useState("all");
+
+  const { filterData, editorMode, menuState } = bindActionCreators(
+    actions,
+    dispatch
+  );
 
   const newEntities = [
     {
@@ -30,18 +35,19 @@ const SideNavigation = (props) => {
   const entitiesItem = [...newEntities, ...entities];
 
   const filterDataHandler = (data) => {
-    dispatch(filterData(data));
+    filterData(data);
     setActiveMenu(data);
+    menuState(data);
   };
 
   useEffect(() => {
-    if (params === -1) dispatch(editorMode(false));
-    else setActiveMenu("");
-  }, [params, dispatch]);
+    const edit = params.split("/").indexOf("edit");
+    if (edit === -1) editorMode(false);
+    setActiveMenu(menu);
+  }, [params, editorMode, menu]);
 
   const createNewSlider = () => {
     localStorage.removeItem("react-slider");
-    setActiveMenu("");
   };
 
   return (
@@ -84,9 +90,7 @@ const SideNavigation = (props) => {
               to={process.env.REACT_APP_NEW_SLIDER}
               onClick={createNewSlider}
             >
-              <div className="crete-slider">
-                Create New{/* <AiFillPlusCircle /> */}
-              </div>
+              <div className="crete-slider">Create New</div>
             </Link>
           </div>
         </aside>

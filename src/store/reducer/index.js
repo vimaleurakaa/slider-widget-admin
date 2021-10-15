@@ -7,6 +7,7 @@ const initialState = {
   checkBoxEvent: {},
   published: false,
   editMode: false,
+  menu: "all",
 };
 
 export const appRootReducer = (state = initialState, { type, payload }) => {
@@ -57,9 +58,10 @@ export const appRootReducer = (state = initialState, { type, payload }) => {
       };
 
     case __.DATA_PUBLISHED: {
-      toast.success("🛰️ Data published successfully!");
+      toast.success("Data published successfully!");
       return {
         ...state,
+        items: payload.items,
         filterData: payload.items,
         published: payload.status,
       };
@@ -75,19 +77,36 @@ export const appRootReducer = (state = initialState, { type, payload }) => {
       };
 
     case __.UPDATE_DATABASE:
-      toast.success("🛰️ Data updated successfully!");
+      toast.success("Data updated successfully!");
       return {
         ...state,
+        items: payload.items,
         filterData: payload.items,
         published: payload.status,
         editMode: false,
+        menu: payload.menu,
       };
 
     case __.DUPLICATE_DATA:
       toast.success("Duplicate successful!");
       return {
         ...state,
+        items: payload.items,
         filterData: payload.items,
+      };
+
+    case __.DELETE_DATA:
+      toast.success("Post Deleted!");
+      return {
+        ...state,
+        items: payload,
+        filterData: payload,
+      };
+
+    case __.MENU_STATE:
+      return {
+        ...state,
+        menu: payload,
       };
 
     default:
