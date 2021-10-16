@@ -1,1 +1,44 @@
-[{"id":"64f0285f-25fa-4469-b696-15239100fd8d","c":"<h2><strong>Medi Assist</strong>&nbsp;was awarded</h2><h2><strong>India's Best TPA at the Asia Insurance Awards 2020</strong>&nbsp;conducted by Insurance Alerts in December 2020</h2><p><a href=\"Read More\" rel=\"noopener noreferrer\" target=\"_blank\">Read More</a></p><p><br></p>","i":"http://localhost:5000/images\\best-tpa-2020-insurancealertss.png","d":{"agent":1,"insurer":1,"me":0,"partner":1,"plus":0,"portal":0},"pd":"10/15/2021, 10:42:27 AM"},{"c":"<h2>NEW EDIT all your&nbsp;<strong>claims ONLINE</strong>&nbsp;on&nbsp;<strong>Medi Assist</strong>&nbsp;Portal!</h2><p><strong>Why choose ONLINE?</strong></p><ul><li>Ensures speedy claim settlements</li><li>Real-time claim tracking</li><li>Increases accuracy on claim settlements</li><li>Reduced paperwork</li><li>Decrease overhead costs and staff time</li></ul><p><a href=\"#Read More\" rel=\"noopener noreferrer\" target=\"_blank\">Read More</a></p>","d":{"agent":0,"insurer":1,"me":0,"partner":0,"plus":0,"portal":0},"i":"http://localhost:5000/images\\submit-health-insurance-claim-online.png","id":"c91e442b-be0b-4d77-ad51-f4094e205eb3","pd":"10/15/2021, 10:49:29 AM","key":"0"},{"id":"9609c398-853e-44ba-a60c-a5bd88838bda","c":"<h2><strong>Medi Assist</strong>&nbsp;was awarded</h2><h2><strong>India's Best TPA at the Asia Insurance Awards 2020</strong>&nbsp;conducted by Insurance Alerts in December 2020</h2><p><a href=\"Read More\" rel=\"noopener noreferrer\" target=\"_blank\">Read More</a></p><p><br></p>","i":"http://localhost:5000/images\\best-tpa-2020-insurancealertss.png","d":{"agent":1,"insurer":1,"me":0,"partner":1,"plus":0,"portal":0},"pd":"10/15/2021, 10:42:27 AM"}]
+[
+  {
+    "c": "<h2><strong>Medi Assist</strong>&nbsp;was awarded</h2><h2><strong>India's Best TPA at the Asia Insurance Awards 2020</strong>&nbsp;conducted by Insurance Alerts in December 2020</h2><p><a href=\"https://blog.mediassist.in/medi-assist-wins-indias-best-tpa/\" rel=\"noopener noreferrer\" target=\"_blank\">Read More</a></p>",
+    "d": {
+      "agent": 1,
+      "insurer": 1,
+      "me": 0,
+      "partner": 1,
+      "plus": 0,
+      "portal": 0
+    },
+    "i": "http://localhost:5000/images\\best-tpa-2020-insurancealertss.png",
+    "id": "3b150ca9-1d5e-482c-bc4d-6455d5380de8",
+    "pd": "10/16/2021, 9:55:40 AM"
+  },
+  {
+    "c": "<h2>NEW EDIT all your&nbsp;<strong>claims ONLINE</strong>&nbsp;on&nbsp;<strong>Medi Assist</strong>&nbsp;Portal!</h2><p><strong>Why choose ONLINE?</strong></p><ul><li>Ensures speedy claim settlements</li><li>Real-time claim tracking</li><li>Increases accuracy on claim settlements</li><li>Reduced paperwork</li><li>Decrease overhead costs and staff time</li></ul><p><a href=\"https://blog.mediassist.in/guide-to-online-claim-submission/\" rel=\"noopener noreferrer\" target=\"_blank\">Read More</a></p>",
+    "d": {
+      "agent": 0,
+      "insurer": 1,
+      "me": 0,
+      "partner": 0,
+      "plus": 0,
+      "portal": 0
+    },
+    "i": "http://localhost:5000/images\\submit-health-insurance-claim-online.png",
+    "id": "c91e442b-be0b-4d77-ad51-f4094e205eb3",
+    "pd": "10/16/2021, 9:55:23 AM"
+  },
+  {
+    "c": "<h2>Done searching&nbsp;<strong>healthcare related information</strong>&nbsp;everywhere on the Internet?</h2><p>We have it all right here for you! Find all answers to your queries on our blog website as we have compiled&nbsp;<strong>100+ blogs</strong>, packed with information that helps you!</p><p><a href=\"https://blog.mediassist.in/\" rel=\"noopener noreferrer\" target=\"_blank\">Visit the blog here</a></p>",
+    "d": {
+      "agent": 1,
+      "insurer": 0,
+      "me": 0,
+      "partner": 0,
+      "plus": 1,
+      "portal": 0
+    },
+    "i": "http://localhost:5000/images\\blogs-launch.svg",
+    "id": "a6cab76c-115b-4a37-8119-70825f6311fb",
+    "pd": "10/16/2021, 9:55:04 AM"
+  }
+]

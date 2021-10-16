@@ -28,7 +28,7 @@ const CreateSlider = () => {
   }, [params]);
 
   const fileUpload = async (e) => {
-    const file = e.target.files[0];
+    const file = [...e.target.files].at();
     const reader = new FileReader();
 
     if (file) {
@@ -37,7 +37,7 @@ const CreateSlider = () => {
 
     reader.addEventListener("load", () => {
       setImage({
-        file: e.target.files[0],
+        file: [...e.target.files].at(),
         filePreview: reader.result,
       });
     });
