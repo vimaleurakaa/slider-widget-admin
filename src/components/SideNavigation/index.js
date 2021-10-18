@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import "./index.scss";
 import { entities } from "../../data/utils";
 import { Link } from "react-router-dom";
@@ -8,6 +8,7 @@ import * as actions from "../../store/actions";
 
 const SideNavigation = (props) => {
   const editMode = useSelector((state) => state.editMode);
+  const items = useSelector((state) => state.items);
   const menu = useSelector((state) => state.menu);
   const dispatch = useDispatch();
   const params = window.location.pathname;
@@ -18,21 +19,49 @@ const SideNavigation = (props) => {
     dispatch
   );
 
-  const newEntities = [
-    {
-      id: "b644c3b71c6all",
-      title: "All",
-      name: "all",
-      priority: 0,
-    },
-    {
-      id: "b644c3b71c6draft",
-      title: "Drafts",
-      name: "drafts",
-    },
-  ];
+  const entitiesItem = useMemo(
+    () => [
+      {
+        id: "b644c3b71c6all",
+        title: "All",
+        name: "all",
+        priority: 0,
+      },
+      {
+        id: "b644c3b71c6draft",
+        title: "Drafts",
+        name: "drafts",
+      },
+      ...entities,
+    ],
+    []
+  );
 
-  const entitiesItem = [...newEntities, ...entities];
+  useEffect(() => {
+    //eslint-disable-next-line
+    entitiesItem.map((entity) => {
+      entitiesItem.count = { ...entitiesItem.count, [entity?.name]: 0 };
+      if (entity.name !== "all" && entity.name !== "drafts") {
+        items.map((item) => {
+          return (entitiesItem.count[entity?.name] =
+            entitiesItem.count[entity?.name] + item?.d[entity.name]);
+        });
+      }
+    });
+    //eslint-disable-next-line
+    items.map((draft) => {
+      let draftCount = 0;
+      //eslint-disable-next-line
+      Object.values(draft.d).map((value) => {
+        if (value === 0) return draftCount++;
+      });
+      if (draftCount === entities.length) {
+        return (entitiesItem.count["drafts"] =
+          entitiesItem.count["drafts"] + 1);
+      }
+    });
+    entitiesItem.count["all"] = items?.length;
+  }, [items, entitiesItem]);
 
   const filterDataHandler = (data) => {
     filterData(data);
@@ -78,6 +107,12 @@ const SideNavigation = (props) => {
                       })}
                     >
                       {it.title}
+                      <span className="slider-counter">
+                        <span>
+                          {entitiesItem?.count?.[it.name] !== 0 &&
+                            entitiesItem?.count?.[it.name]}
+                        </span>
+                      </span>
                     </li>
                   </Link>
                 ))}

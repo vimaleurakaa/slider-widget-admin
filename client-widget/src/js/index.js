@@ -40,10 +40,6 @@ fetch("/data.json")
   .then((data) => {
     loader.remove();
     data.map((it, id) => {
-      // carouselIndicator.innerHTML += `<li class=${
-      //   id === 0 ? "active" : ""
-      // }></li>`;
-
       carouselInner.innerHTML += carouselItems(it, id);
       carouselIndicator.innerHTML += svgIndicator(id);
     });

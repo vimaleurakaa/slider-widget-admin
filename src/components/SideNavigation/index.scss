@@ -84,3 +84,16 @@
   align-items: center;
   min-width: 400px;
 }
+
+.slider-counter {
+  position: relative;
+  float: right;
+  clear: both;
+  font-weight: 800;
+  padding: 0rem 0.2rem 0.1rem 0.2rem;
+  border-radius: 0.3rem;
+
+  span {
+    font-size: 0.8rem;
+  }
+}

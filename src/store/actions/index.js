@@ -78,15 +78,17 @@ export const publishData = (publishSites, content, image) => {
       });
     });
 
-    Object.entries(publishSites).map(([key, value]) => {
-      if (Boolean(value)) {
-        destinations = {
-          ...destinations,
-          [key]: 1,
-        };
-      }
-      return key;
-    });
+    if (publishSites !== undefined) {
+      Object.entries(publishSites).map(([key, value]) => {
+        if (Boolean(value)) {
+          destinations = {
+            ...destinations,
+            [key]: 1,
+          };
+        }
+        return key;
+      });
+    }
 
     const setData = async (imageUrl) => {
       const sliderData = {
