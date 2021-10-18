@@ -12,7 +12,7 @@ const CreateSlider = () => {
 
   const [image, setImage] = useState({
     file: "",
-    filePreview: "/assets/300.gif",
+    filePreview: process.env.REACT_APP_PLACEHOLDER_IMAGE,
   });
 
   const params = useParams();

@@ -65,10 +65,12 @@ const SplitEditorCard = ({
           </div>
         </div>
       </div>
-
       <CheckBox checkBoxHandler={checkBoxHandler} />
       <div
         {...((value === "" || value === undefined) && {
+          className: "crete-slider--disabled",
+        })}
+        {...(image.filePreview === process.env.REACT_APP_PLACEHOLDER_IMAGE && {
           className: "crete-slider--disabled",
         })}
       >
