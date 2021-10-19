@@ -54,6 +54,7 @@ export const duplicateData = (prevData, newData) => {
     const id = uuid();
     newData.id = id;
     localStorage.setItem("post--not-modified", id);
+    sessionStorage.setItem("edit-id", id);
     const data = [newData, ...prevData];
     uploadDataAsync(data, updateDatabase);
   };

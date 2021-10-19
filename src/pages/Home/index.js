@@ -49,6 +49,7 @@ const Home = () => {
       const data = { ...items[id] };
       localStorage.setItem("react-slider", JSON.stringify(filterItems[id]));
       duplicateData(items, data);
+      editorMode(true);
       history.push(process.env.REACT_APP_EDIT_SLIDER + filterItems[id]?.id);
     } else if (type === DELETE_DATA) {
       setModal(!modal);
