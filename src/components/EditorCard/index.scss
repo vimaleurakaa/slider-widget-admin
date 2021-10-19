@@ -35,17 +35,45 @@
   min-height: 280px;
 }
 
-.ql-editor a{
-    @apply text-base font-medium rounded-lg p-3;
+.ql-editor a {
+  @apply text-base font-medium rounded-lg p-3;
 
-    @apply bg-blue-500 text-white;
-    transition: all 0.25s ease;
-    
-    &:hover {
-      @apply bg-blue-800 text-white;
-    }  
+  @apply bg-blue-500 text-white;
+  transition: all 0.25s ease;
+
+  &:hover {
+    @apply bg-blue-800 text-white;
+  }
 }
 
+.editor-secondary-actions {
+  display: inline-flex;
+  flex-grow: 1;
 
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 130px;
 
+    svg {
+      margin-right: 0.6rem;
+      font-size: 1.4rem;
+    }
+  }
 
+  button:nth-child(2) {
+    margin-left: 1rem;
+    background-color: transparent;
+    border: 1px solid #e00000;
+    color: #e00000;
+    transition: all 0.25s ease;
+    font-weight: 600;
+
+    &:hover {
+      background-color: #e00000;
+      border: 1px solid #e00000;
+      color: #fff;
+    }
+  }
+}

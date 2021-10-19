@@ -1,11 +1,15 @@
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import CheckBox from "../CheckBox";
+import { FiArrowLeftCircle } from "react-icons/fi";
+import { RiDeleteBin5Line } from "react-icons/ri";
+import { useHistory } from "react-router-dom";
+import { deleteData } from "../../store/actions";
 
 import "./index.scss";
 
-const SplitEditorCard = ({
+const EditorCard = ({
   value,
   setValue,
   checkBoxHandler,
@@ -37,7 +41,17 @@ const SplitEditorCard = ({
     setValue(modHTML);
   };
 
+  const items = useSelector((state) => state.items);
   const editMode = useSelector((state) => state.editMode);
+  const history = useHistory();
+  const dispatch = useDispatch();
+
+  const deleteHandler = () => {
+    const id = sessionStorage.getItem("edit-id");
+    sessionStorage.setItem("deleteKey", id);
+    dispatch(deleteData(items));
+    history.push("/");
+  };
 
   return (
     <>
@@ -66,22 +80,35 @@ const SplitEditorCard = ({
         </div>
       </div>
       <CheckBox checkBoxHandler={checkBoxHandler} />
-      <div
-        {...((value === "" || value === undefined) && {
-          className: "crete-slider--disabled",
-        })}
-        {...(image.filePreview === process.env.REACT_APP_PLACEHOLDER_IMAGE && {
-          className: "crete-slider--disabled",
-        })}
-      >
-        <div className="editor-layout-publish my-10 text-right">
-          <button className="btn btn--primary" onClick={publish}>
-            {editMode ? "Update and Publish" : "Save and publish"}
+      <div className="flex align-middle">
+        <div className="editor-layout-publish editor-secondary-actions my-10">
+          <button className="btn btn--danger" onClick={() => history.goBack()}>
+            <FiArrowLeftCircle /> <span>Go Back</span>
           </button>
+          {editMode && (
+            <button className="btn btn--danger" onClick={deleteHandler}>
+              <RiDeleteBin5Line /> <span>Delete</span>
+            </button>
+          )}
+        </div>
+        <div
+          {...((value === "" || value === undefined) && {
+            className: "crete-slider--disabled",
+          })}
+          {...(image.filePreview ===
+            process.env.REACT_APP_PLACEHOLDER_IMAGE && {
+            className: "crete-slider--disabled",
+          })}
+        >
+          <div className="editor-layout-publish my-10">
+            <button className="btn btn--primary" onClick={publish}>
+              {editMode ? "Update and Publish" : "Save and publish"}
+            </button>
+          </div>
         </div>
       </div>
     </>
   );
 };
 
-export default SplitEditorCard;
+export default EditorCard;

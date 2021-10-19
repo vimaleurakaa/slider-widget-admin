@@ -89,6 +89,7 @@ export const appRootReducer = (state = initialState, { type, payload }) => {
 
     case __.DUPLICATE_DATA:
       toast.success("Duplicate successful!");
+      document.documentElement.scrollTop = 0;
       return {
         ...state,
         items: payload.items,

@@ -19,32 +19,29 @@ const SideNavigation = (props) => {
     dispatch
   );
 
-  const entitiesItem = useMemo(
-    () => [
-      {
-        id: "b644c3b71c6all",
-        title: "All",
-        name: "all",
-        priority: 0,
-      },
-      {
-        id: "b644c3b71c6draft",
-        title: "Drafts",
-        name: "drafts",
-      },
-      ...entities,
-    ],
-    []
-  );
+  const [menuItems, setMenuItems] = useState([
+    {
+      id: "b644c3b71c6all",
+      title: "All",
+      name: "all",
+      priority: 0,
+    },
+    {
+      id: "b644c3b71c6draft",
+      title: "Drafts",
+      name: "drafts",
+    },
+    ...entities,
+  ]);
 
-  useEffect(() => {
+  useMemo(() => {
     //eslint-disable-next-line
-    entitiesItem.map((entity) => {
-      entitiesItem.count = { ...entitiesItem.count, [entity?.name]: 0 };
+    menuItems.map((entity) => {
+      menuItems.count = { ...menuItems.count, [entity?.name]: 0 };
       if (entity.name !== "all" && entity.name !== "drafts") {
         items.map((item) => {
-          return (entitiesItem.count[entity?.name] =
-            entitiesItem.count[entity?.name] + item?.d[entity.name]);
+          return (menuItems.count[entity?.name] =
+            menuItems.count[entity?.name] + item?.d[entity.name]);
         });
       }
     });
@@ -56,12 +53,12 @@ const SideNavigation = (props) => {
         if (value === 0) return draftCount++;
       });
       if (draftCount === entities.length) {
-        return (entitiesItem.count["drafts"] =
-          entitiesItem.count["drafts"] + 1);
+        return (menuItems.count["drafts"] = menuItems.count["drafts"] + 1);
       }
     });
-    entitiesItem.count["all"] = items?.length;
-  }, [items, entitiesItem]);
+    menuItems.count["all"] = items?.length;
+    setMenuItems(menuItems);
+  }, [items, menuItems]);
 
   const filterDataHandler = (data) => {
     filterData(data);
@@ -88,7 +85,7 @@ const SideNavigation = (props) => {
               <img className="w-20" src="/assets/logo.png" alt="brand-logo" />
             </div>
             <ul className="side-drawer-items flex flex-col my-6">
-              {entitiesItem
+              {menuItems
                 //eslint-disable-next-line
                 ?.sort((x, y) => {
                   if (x?.priority !== 0 && y?.priority !== 0) {
@@ -109,8 +106,8 @@ const SideNavigation = (props) => {
                       {it.title}
                       <span className="slider-counter">
                         <span>
-                          {entitiesItem?.count?.[it.name] !== 0 &&
-                            entitiesItem?.count?.[it.name]}
+                          {menuItems.count?.[it.name] !== 0 &&
+                            menuItems.count?.[it.name]}
                         </span>
                       </span>
                     </li>

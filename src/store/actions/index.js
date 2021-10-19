@@ -191,7 +191,7 @@ export const updateData = ({ ...props }) => {
   };
 };
 
-export const deleteData = (data) => {
+export const deleteData = (items) => {
   return async (dispatch) => {
     const updateDatabase = async (payloadData) => {
       const { data } = payloadData;
@@ -200,7 +200,12 @@ export const deleteData = (data) => {
         payload: JSON.parse(data),
       });
     };
-    uploadDataAsync(data, updateDatabase);
+    const data = [...items];
+    const key = sessionStorage.getItem("deleteKey");
+    const deleteItem = data.filter((it) => it?.id !== key);
+    sessionStorage.removeItem("deleteKey");
+
+    uploadDataAsync(deleteItem, updateDatabase);
   };
 };
 

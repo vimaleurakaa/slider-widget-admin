@@ -3,6 +3,10 @@
 @tailwind utilities;
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap");
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: "Open Sans", sans-serif, -apple-system, BlinkMacSystemFont,
@@ -52,6 +56,15 @@ body {
 
   &:hover {
     @apply bg-blue-800 text-white;
+  }
+}
+
+.btn--danger {
+  @apply bg-red-500 text-white;
+  transition: all 0.25s ease;
+
+  &:hover {
+    @apply bg-red-800 text-white;
   }
 }
 

@@ -10,7 +10,7 @@ import {
 import { BiEdit } from "react-icons/bi";
 import { MdContentCopy } from "react-icons/md";
 import { RiDeleteBin6Line } from "react-icons/ri";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import "./index.scss";
 import Modal from "../../components/Modal";
 
@@ -20,6 +20,7 @@ const Home = () => {
   const dispatch = useDispatch();
   const duplicateID = localStorage.getItem("post--not-modified");
   const params = window.location.pathname;
+  const history = useHistory();
 
   const [modal, setModal] = useState(false);
 
@@ -33,11 +34,7 @@ const Home = () => {
 
   const closeModal = (e) => {
     if (e === DELETE_DATA) {
-      const data = [...items];
-      const key = sessionStorage.getItem("deleteKey");
-      const deleteItem = data.filter((it) => it?.id !== key);
-      deleteData(deleteItem);
-      sessionStorage.removeItem("deleteKey");
+      deleteData(items);
     }
     setModal(!modal);
   };
@@ -46,10 +43,13 @@ const Home = () => {
     if (type === UPDATE_DATABASE) {
       filterItems[id].key = id;
       localStorage.setItem("react-slider", JSON.stringify(filterItems[id]));
+      sessionStorage.setItem("edit-id", items[id].id);
       editorMode(true);
     } else if (type === DUPLICATE_DATA) {
       const data = { ...items[id] };
+      localStorage.setItem("react-slider", JSON.stringify(filterItems[id]));
       duplicateData(items, data);
+      history.push(process.env.REACT_APP_EDIT_SLIDER + filterItems[id]?.id);
     } else if (type === DELETE_DATA) {
       setModal(!modal);
       sessionStorage.setItem("deleteKey", filterItems[id]?.id);
@@ -78,7 +78,7 @@ const Home = () => {
             )}
             <div className="ma-comm-promo-carousel--edit">
               <div className="flex">
-                <Link to={"/slider/edit/" + it?.id}>
+                <Link to={process.env.REACT_APP_EDIT_SLIDER + it?.id}>
                   <div
                     className="ma-comm-prom-icon-wrapper icon-wrapper--edit"
                     onClick={() => editClickHandler(key, UPDATE_DATABASE)}
